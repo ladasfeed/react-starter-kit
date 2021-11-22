@@ -2,7 +2,7 @@ import InputB from "../../Components/InputBuilder";
 import Lock from "./assets/Lock.svg";
 import EyeClosed from "./assets/EyeClosed.svg";
 import Edit from "./assets/Edit.svg";
-import CalendarIcon from "./assets/calendar.svg";
+import Fuck from "./assets/Edit.svg";
 // import styles from './index.module.css'
 import styles from "./et.module.css";
 import { CalendarConstructor } from "../../Components/CalendarCore";
@@ -28,6 +28,6 @@ export const Input = InputB.InputTextBuilder({
 export const DatePicker = CalendarConstructor({
   Input: Input.CalendarInput,
   icons: {
-    calendar: CalendarIcon,
+    calendar: Edit,
   },
 });
