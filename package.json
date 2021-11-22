@@ -33,6 +33,7 @@
     "react-dom": "^17.0.2",
     "react-hook-form": "^7.19.5",
     "react-number-format": "^4.8.0",
+    "react-router-dom": "^6.0.2",
     "react-svg-loader": "^3.0.3",
     "sass-loader": "^12.3.0",
     "style-loader": "^3.3.1",
@@ -43,14 +44,20 @@
     "webpack-cli": "^4.9.1"
   },
   "dependencies": {
+    "@hookform/resolvers": "^2.8.3",
+    "@types/axios": "^0.14.0",
     "@types/react-datepicker": "^4.3.2",
     "@types/react-select": "^5.0.1",
+    "@types/yup": "^0.29.13",
+    "axios": "^0.24.0",
     "classnames": "*",
     "framer-motion": "^5.3.1",
     "react-datepicker": "^4.2.1",
+    "react-error-boundary": "^3.1.4",
     "react-hook-form": "^7.19.5",
     "react-number-format": "^4.8.0",
-    "react-select": "^5.2.1"
+    "react-select": "^5.2.1",
+    "yup": "^0.32.9"
   },
   "peerDependencies": {
     "react": "*",
