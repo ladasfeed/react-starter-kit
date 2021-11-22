@@ -1,0 +1,38 @@
+.input {
+    --label-offset: -20px;
+    padding-left: 0;
+    border: none;
+    border-bottom: 1px solid #656565;
+    transition: .3s;
+    padding-bottom: 5px;
+    font-family: Arial;
+    border-radius: 0;
+}
+
+.input:focus {
+    border-bottom: 1px solid #2D49FE;
+}
+.input:disabled {
+    background: white;
+}
+
+.label {
+    left: 0;
+    color: #656565;
+    font-family: Arial;
+}
+
+.input:not(:placeholder-shown) + .label,
+.input:focus + .label,
+.input.filled + .label {
+    color: #2D49FE;
+}
+
+.error {
+    left: 0;
+    bottom: -5px;
+    background: #ff4a7c;
+    padding: 2px;
+    color: #ffffff;
+    border-radius: 2px;
+}

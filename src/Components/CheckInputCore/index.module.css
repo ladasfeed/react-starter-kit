@@ -1,0 +1,77 @@
+.input_custom {
+
+}
+
+
+.custom {
+    padding: 10px;
+    border-radius: 20px;
+    transition: .3s;
+    color: white;
+}
+.input_custom + .custom {
+    background: #61dafb;
+}
+.input_custom:checked + .custom {
+    background: #01cd8f;
+}
+
+.container {
+    width: fit-content;
+    display: grid;
+    align-items: center;
+    cursor: pointer;
+    grid-column-gap: 10px;
+    justify-content: flex-start;
+    grid-template-columns: auto auto;
+}
+
+.checkbox_input {
+    display: none;
+}
+
+.label {
+
+}
+
+.icon {
+    position: relative;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.checked_icon,
+.unchecked_icon {
+    transition: .2s;
+    opacity: 0;
+    position: absolute;
+}
+
+.checkbox_input:not(:checked) + .icon > .unchecked_icon {
+    opacity: 1;
+}
+
+.checkbox_input:checked + .icon > .checked_icon {
+    opacity: 1;
+}
+
+.group {
+    display: flex;
+    padding-bottom: 20px;
+    position: relative;
+    /* Этот маржин ломает переиспользуемость - приходится делать -20рх на странице */
+    /*margin-top: 20px;*/
+}
+.error {
+    position: absolute;
+    color: rgb(var(--color-red-2));
+    top: calc(100% - 10px);
+    left: 0;
+}
+.group .container {
+    margin-right: 17px;
+}
