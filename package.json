@@ -28,14 +28,11 @@
     "@types/react": "^17.0.34",
     "@types/react-dom": "^17.0.11",
     "babel-loader": "^8.2.3",
-    "classnames": "^2.3.1",
     "css-loader": "^6.5.1",
     "mini-css-extract-plugin": "^2.4.4",
     "postcss-loader": "^6.2.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-hook-form": "^7.19.5",
-    "react-number-format": "^4.8.0",
     "react-router-dom": "^6.0.2",
     "react-svg-loader": "^3.0.3",
     "sass-loader": "^12.3.0",
@@ -44,17 +41,15 @@
     "typescript": "^4.4.4",
     "typings-for-css-modules-loader": "^1.7.0",
     "webpack": "^5.64.0",
-    "webpack-cli": "^4.9.1"
-  },
-  "dependencies": {
+    "webpack-cli": "^4.9.1",
+
+    "classnames": "*",
     "@hookform/resolvers": "^2.8.3",
-    "@svgr/webpack": "^5.5.0",
     "@types/axios": "^0.14.0",
     "@types/react-datepicker": "^4.3.2",
     "@types/react-select": "^5.0.1",
     "@types/yup": "^0.29.13",
     "axios": "^0.24.0",
-    "classnames": "*",
     "framer-motion": "^5.3.1",
     "react-datepicker": "^4.2.1",
     "react-error-boundary": "^3.1.4",
@@ -63,9 +58,26 @@
     "react-select": "^5.2.1",
     "yup": "^0.32.9"
   },
+  "dependencies": {
+
+  },
   "peerDependencies": {
     "react": "*",
-    "react-dom": "*"
+    "react-dom": "*",
+    "classnames": "*",
+    "@hookform/resolvers": "^2.8.3",
+    "@types/axios": "^0.14.0",
+    "@types/react-datepicker": "^4.3.2",
+    "@types/react-select": "^5.0.1",
+    "@types/yup": "^0.29.13",
+    "axios": "^0.24.0",
+    "framer-motion": "^5.3.1",
+    "react-datepicker": "^4.2.1",
+    "react-error-boundary": "^3.1.4",
+    "react-hook-form": "^7.19.5",
+    "react-number-format": "^4.8.0",
+    "react-select": "^5.2.1",
+    "yup": "^0.32.9"
   },
   "files": [
     "dist"

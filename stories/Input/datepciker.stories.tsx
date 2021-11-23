@@ -1,7 +1,7 @@
-import { withRHF } from "../helpers/withRHF";
+import { withRHF } from "react-starter-kit/stories/helpers/withRHF";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import React from "react";
-import { DatePicker } from "./index";
+import { DatePicker } from "react-starter-kit/stories/Input/index";
 
 export default {
   title: "Example/Calendar",

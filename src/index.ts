@@ -11,6 +11,7 @@ import { useSlider } from "./Hooks/useSlider";
 import { usePaginator } from "./Hooks/usePagination";
 import { useDebounce } from "./Hooks/useDebounce";
 import { useBlurred } from "./Hooks/useBlurred";
+import { RouterDevTools as RouterDevT } from "./Builders/routes/RouterDevTools/component";
 
 export const UIBuilders = {
   InputTextBuilder: InputTextBuilder.InputTextBuilder,
@@ -33,3 +34,5 @@ export const RSKHooks = {
   useDebounce,
   useBlurred,
 };
+
+export const RouterDevTools = RouterDevT;

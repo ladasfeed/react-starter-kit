@@ -1,7 +1,7 @@
-import { DatePicker, Input } from "./index";
+import { DatePicker, Input } from "react-starter-kit/stories/Input/index";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import React, { useState } from "react";
-import { withRHF } from "../helpers/withRHF";
+import { withRHF } from "react-starter-kit/stories/helpers/withRHF";
 
 type inputModeType =
   | "Default"

@@ -1,11 +1,11 @@
-import InputB from "../../Components/InputBuilder";
-import Lock from "./assets/Lock.svg";
-import EyeClosed from "./assets/EyeClosed.svg";
-import Edit from "./assets/Edit.svg";
-import Fuck from "./assets/Edit.svg";
+import InputB from "Components/InputBuilder";
+import Lock from "react-starter-kit/stories/Input/assets/Lock.svg";
+import EyeClosed from "react-starter-kit/stories/Input/assets/EyeClosed.svg";
+import Edit from "react-starter-kit/stories/Input/assets/Edit.svg";
+import Fuck from "react-starter-kit/stories/Input/assets/Edit.svg";
 // import styles from './index.module.css'
-import styles from "./et.module.css";
-import { CalendarConstructor } from "../../Components/CalendarCore";
+import styles from "react-starter-kit/stories/Input/et.module.css";
+import { CalendarConstructor } from "Components/CalendarCore";
 
 export const Input = InputB.InputTextBuilder({
   classNames: {

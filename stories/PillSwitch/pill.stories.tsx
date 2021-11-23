@@ -1,7 +1,7 @@
-import { withRHF } from "../helpers/withRHF";
+import { withRHF } from "react-starter-kit/stories/helpers/withRHF";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import React from "react";
-import { PillSwitch } from "./index";
+import { PillSwitch } from "react-starter-kit/stories/PillSwitch/index";
 
 type ComponentMetaType = typeof PillSwitch;
 

@@ -1,7 +1,7 @@
-import { withRHF } from "../helpers/withRHF";
+import { withRHF } from "react-starter-kit/stories/helpers/withRHF";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import React from "react";
-import { SelectTest } from "../../Components/Select";
+import { SelectTest } from "Components/Select";
 
 type ComponentMetaType = typeof SelectTest;
 

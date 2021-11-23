@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import styles from "./index.module.css";
 import { Link } from "react-router-dom";
-import { useToggle } from "Hooks/useToggle";
+import { useToggle } from "../../../Hooks/useToggle";
 
 export const RouterDevTools: FC<{ router: any }> = ({ router }) => {
   const [isOpen, toggleOpen] = useToggle(false);
