@@ -29,9 +29,9 @@ type constructorType = {
   };
 };
 
-export const CalendarConstructor = (constructor: constructorType) => {
+export const CalendarBuilder = (constructor: constructorType) => {
   const Calendar: FC<propsType> = ({
-    // control,
+    control,
     name,
     big,
     highlightDates,
@@ -48,8 +48,6 @@ export const CalendarConstructor = (constructor: constructorType) => {
       setDidMount(true);
     }, []);
     const close = () => setIsOpen(false);
-
-    const { control } = useFormContext();
 
     return (
       <Controller

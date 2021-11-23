@@ -1,5 +1,6 @@
 import InputTextBuilder from "./Components/InputBuilder";
 import { SwitchBuilder } from "./Components/Switch";
+import { CalendarBuilder } from "./Components/CalendarCore";
 import { CheckInputBuilder } from "./Components/CheckInputCore";
 import { apiBuilder as apiB } from "./Builders/api";
 import { yupBuilder as yupB } from "./Builders/yup";
@@ -17,6 +18,7 @@ export const UIBuilders = {
   InputTextBuilder: InputTextBuilder.InputTextBuilder,
   SwitchBuilder,
   CheckInputBuilder,
+  CalendarBuilder,
 };
 
 export const builders = {

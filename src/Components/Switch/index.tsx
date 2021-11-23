@@ -24,15 +24,15 @@ export type SwitchPropsType = {
  * */
 export const SwitchBuilder = (builderProps: SwitchBuilderType) => {
   const Switch = (props: SwitchPropsType) => {
-    const { control } = useFormContext();
+    // const { control } = useFormContext();
     return (
       <label
         className={cn(builderProps.classNames.container, styles.container)}
       >
         <input
           type="checkbox"
-          /*{...props.control.register(props.name)}*/
-          {...control.register(props.name)}
+          {...props.control.register(props.name)}
+          /*{...control.register(props.name)}*/
           className={cn(builderProps.classNames.input, styles.input)}
         />
         <div
