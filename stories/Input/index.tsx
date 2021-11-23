@@ -5,7 +5,7 @@ import Edit from "react-starter-kit/stories/Input/assets/Edit.svg";
 import Fuck from "react-starter-kit/stories/Input/assets/Edit.svg";
 // import styles from './index.module.css'
 import styles from "react-starter-kit/stories/Input/et.module.css";
-import { CalendarConstructor } from "Components/CalendarCore";
+import { CalendarConstructor } from "../../src/Components/CalendarCore";
 
 export const Input = InputB.InputTextBuilder({
   classNames: {

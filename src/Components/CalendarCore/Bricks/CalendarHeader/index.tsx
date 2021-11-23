@@ -1,9 +1,9 @@
 import React, { FC, useState } from "react";
-import styles from "./index.module.css";
+import styles from "Components/CalendarCore/Bricks/CalendarHeader/index.module.css";
 import cn from "classnames";
-import { months } from "../../helpers";
+import { months } from "Components/CalendarCore/helpers";
 import { motion } from "framer-motion";
-import { calendarAnimation } from "../../animations";
+import { calendarAnimation } from "Components/CalendarCore/animations";
 import { format, getYear } from "date-fns";
 
 type propsType = {
