@@ -1,6 +1,6 @@
 import React, { AllHTMLAttributes, FC, ReactNode, useState } from "react";
 import styles from "./index.module.css";
-import {Control, Controller, useFormContext} from "react-hook-form";
+import { Control, Controller, useFormContext } from "react-hook-form";
 import cn from "classnames";
 import NumberFormat, { NumberFormatProps } from "react-number-format";
 
@@ -46,7 +46,10 @@ const InputSupports: FC<{
   return (
     <>
       {componentProps.placeholder && (
-        <label htmlFor={componentProps.name} className={cn(styles.label, classNames?.elements?.label)}>
+        <label
+          htmlFor={componentProps.name}
+          className={cn(styles.label, classNames?.elements?.label)}
+        >
           {componentProps.placeholder}
         </label>
       )}
@@ -103,8 +106,8 @@ function InputTextBuilder(builderProps: InputConstructorType) {
    * Create input which uses to create more complex components by composition
    * */
   const Input = function InputText(inputProps: TextInputPropsType) {
-    const { name, ...jsxAttr } = inputProps;
-    const {control} = useFormContext()
+    const { control, name, ...jsxAttr } = inputProps;
+    // const {control} = useFormContext()
     const fieldProps = control.register(name);
     return (
       <InputWrapper builderProps={builderProps} inputProps={inputProps}>
