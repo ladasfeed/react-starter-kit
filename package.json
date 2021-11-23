@@ -1,15 +1,18 @@
 {
-  "name": "react-kit-test-1",
-  "version": "1.0.0",
+  "name": "react-dev-starter-pack",
+  "version": "0.0.1",
   "description": "",
   "main": "./dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "pub": "npx webpack && npm version patch && npm publish",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
   "repository": {
     "url": "https://github.com/ladasfeed/react-starter-kit.git"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "keywords": [],
   "author": "",
@@ -45,6 +48,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^2.8.3",
+    "@svgr/webpack": "^5.5.0",
     "@types/axios": "^0.14.0",
     "@types/react-datepicker": "^4.3.2",
     "@types/react-select": "^5.0.1",

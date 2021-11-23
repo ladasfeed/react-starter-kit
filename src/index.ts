@@ -6,6 +6,11 @@ import { yupBuilder as yupB } from "./Builders/yup";
 import { createComponent as createComponentB } from "./Builders/component";
 import { localStorageBuilder as lcB } from "./Builders/localStorage";
 import { createRouter as createRouterB } from "./Builders/routes";
+import { useToggle } from "./Hooks/useToggle";
+import { useSlider } from "./Hooks/useSlider";
+import { usePaginator } from "./Hooks/usePagination";
+import { useDebounce } from "./Hooks/useDebounce";
+import { useBlurred } from "./Hooks/useBlurred";
 
 export const UIBuilders = {
   InputTextBuilder: InputTextBuilder.InputTextBuilder,
@@ -13,8 +18,18 @@ export const UIBuilders = {
   CheckInputBuilder,
 };
 
-export const apiBuilder = apiB;
-export const yupBuilder = yupB;
-export const createComponent = createComponentB;
-export const localStorageBuilder = lcB;
-export const createRouter = createRouterB;
+export const builders = {
+  api: apiB,
+  yup: yupB,
+  component: createComponentB,
+  localStorage: lcB,
+  router: createRouterB,
+};
+
+export const RSKHooks = {
+  useToggle,
+  useSlider,
+  usePaginator,
+  useDebounce,
+  useBlurred,
+};
