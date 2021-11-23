@@ -31,7 +31,12 @@ module.exports = {
         exclude: [/node_modules/, /.\/src\/stories/],
       },
       {
-        test: /\.((c|sa|sc)ss)$/i,
+        test: /\.css$/,
+        exclude: /\.module\.css$/,
+        use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.module\.css$/,
         use: [
           "style-loader",
           {
