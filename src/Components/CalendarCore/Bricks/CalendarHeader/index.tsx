@@ -1,5 +1,5 @@
 import React, { FC, useState } from "react";
-import styles from "Components/CalendarCore/Bricks/CalendarHeader/index.module.css";
+import styles from "./index.module.css";
 import cn from "classnames";
 import { months } from "Components/CalendarCore/helpers";
 import { motion } from "framer-motion";

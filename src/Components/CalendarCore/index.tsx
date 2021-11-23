@@ -5,8 +5,11 @@ import DatePicker from "react-datepicker";
 import styles from "Components/CalendarCore/index.module.css";
 import "react-datepicker/dist/react-datepicker.css";
 import "react-starter-kit/src/Components/CalendarCores";
-import { CalendarHeader } from "react-starter-kit/dist/CalendarCore/Bricks/CalendarHeader";
-import { formatWeekDay, renderDayContents } from "Components/CalendarCore/helpers";
+import { CalendarHeader } from "./Bricks/CalendarHeader";
+import {
+  formatWeekDay,
+  renderDayContents,
+} from "Components/CalendarCore/helpers";
 
 type propsType = {
   control: Control<any>;
