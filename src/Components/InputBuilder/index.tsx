@@ -2,7 +2,7 @@ import React, { AllHTMLAttributes, FC, ReactNode, useState } from "react";
 import styles from "./index.module.css";
 import { Control, Controller, useFormContext } from "react-hook-form";
 import cn from "classnames";
-import NumberFormat, { NumberFormatProps } from "react-number-format";
+import NumberFormat, { NumberFormatProps, NumberFormatPropsBase } from "react-number-format";
 
 type InputConstructorType = {
   classNames?: {
@@ -197,7 +197,7 @@ function InputTextBuilder(builderProps: InputConstructorType) {
         </InputWrapper>
       );
     },
-    Numeric: (props: NumberFormatProps & TextInputPropsType) => {
+    Numeric: (props: NumberFormatPropsBase & TextInputPropsType) => {
       return (
         <InputWrapper builderProps={builderProps} inputProps={props}>
           <Controller
@@ -205,13 +205,14 @@ function InputTextBuilder(builderProps: InputConstructorType) {
             name={props.name}
             render={({ field }) => (
               <NumberFormat
-                {...field}
-                placeholder={"0"}
-                className={cn(styles.input, classNames?.elements?.input)}
                 allowNegative={false}
                 thousandSeparator={" "}
                 mask={props.mask}
                 format={props.format}
+                {...props}
+                className={cn(styles.input, classNames?.elements?.input)}
+                placeholder={"0"}
+                {...field}
               />
             )}
           />
