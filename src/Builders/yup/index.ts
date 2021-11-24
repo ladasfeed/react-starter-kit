@@ -10,6 +10,10 @@ type yupBuilderPropsType<T> = {
   };
   customSchemas: (instance: typeof yup) => T;
 };
+/**
+ * Function takes text snippets and custom schemas.
+ * Output: textSnippets, yup instance, create, resolver, schemas
+ * */
 export function yupBuilder<T>(constructor: yupBuilderPropsType<T>) {
   const yupText = {
     req: constructor.text.req,

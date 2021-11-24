@@ -1,47 +1,71 @@
+/** Recursive type for correct typing of object.
+ * Just like a function.
+ * */
 type recursiveRouterType<T> = T extends string
-   ? T
-   : {
-        [key in keyof T]: recursiveRouterType<T[key]>;
-     } & { root: string };
+  ? T
+  : {
+      [key in keyof T]: recursiveRouterType<T[key]>;
+    } & { root: string };
 
-export function createRouter<T>(rootRouter: T): recursiveRouterType<T> {
-   let arrayOfRoutes: Array<any> = [];
+export function createRouter<T>(
+  rootRouter: T
+): recursiveRouterType<T> & { array: Array<string> } {
+  /* Array of routes for devtools */
+  let arrayOfRoutes: Array<any> = [];
 
-   const routerCreator = (router: any, path: string) => {
-      arrayOfRoutes.push("—————");
-      let temp: any = {};
-      temp.root = path ? path : "/";
-      arrayOfRoutes.push(temp.root);
+  /**
+   * router: router object,
+   * path: prefix string
+   * */
+  const routerCreator = (
+    router: {
+      [key: string]: any;
+    },
+    prefixPath: string
+  ) => {
+    /* Delimiter */
+    arrayOfRoutes.push("—————");
+    let tempRouter: any = {};
 
-      let key: keyof typeof router;
-      for (key in router) {
-         if (key == "root") {
-            continue;
-         }
+    /**
+     * Define root field.
+     * Overriding root will not override object's field name.
+     * */
+    tempRouter.root = prefixPath ? prefixPath : "/";
+    arrayOfRoutes.push(tempRouter.root);
 
-         if (typeof router[key] == "object") {
-            const customRoot = router[key]["root"];
-
-            if (customRoot) {
-               temp[key] = routerCreator(router[key], `${path}${customRoot}`);
-            } else {
-               temp[key] = routerCreator(router[key], `${path}/${key}`);
-            }
-         } else if (typeof router[key] == "string") {
-            if (router[key].includes("!")) {
-               temp[key] = router[key].substr(1);
-               arrayOfRoutes.push(temp[key]);
-            } else {
-               temp[key] = path + router[key];
-               arrayOfRoutes.push(temp[key]);
-            }
-         }
+    let key: keyof typeof router;
+    for (key in router) {
+      if (key == "root") {
+        continue;
       }
-      return temp;
-   };
+      const routerElementType = typeof router[key];
 
-   const router = routerCreator(rootRouter, "");
+      switch (routerElementType) {
+        case "object":
+          const customRoot = router[key]["root"];
+          tempRouter[key] = routerCreator(
+            router[key],
+            `${prefixPath}/${customRoot || key}`
+          );
+          break;
+        case "string":
+          if (router[key].includes("!")) {
+            tempRouter[key] = router[key].substr(1);
+          } else {
+            tempRouter[key] = prefixPath + router[key];
+          }
+          arrayOfRoutes.push(tempRouter[key]);
+          break;
+        default:
+          break;
+      }
+    }
+    return tempRouter;
+  };
 
-   router.array = arrayOfRoutes;
-   return router;
+  const router = routerCreator(rootRouter, "");
+
+  router.array = arrayOfRoutes;
+  return router;
 }
