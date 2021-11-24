@@ -10,10 +10,9 @@ const ErrorFallback: FC<any> = ({ error, resetErrorBoundary }: any) => {
   );
 };
 
-export const createErrorBoundaryProps = (componentName: string) => ({
-  FallbackComponent: ErrorFallback,
+export const createErrorBoundaryProps = (fb: FC<any>) => ({
+  FallbackComponent: fb,
   onError: (error: any, info: any) => {
-    console.group(`COMPONENT ${componentName} ERROR`);
     console.error("ERROR INFORMATION", error);
     console.log("COMPONENTS STACK");
     console.info(info);
@@ -21,6 +20,8 @@ export const createErrorBoundaryProps = (componentName: string) => ({
   },
 });
 
-export function createComponent<T>(name: string, component: FC<T>) {
-  return withErrorBoundary(component, createErrorBoundaryProps(name));
+export function createComponentBuilder(fb: FC<any>) {
+  return function <T>(name: string, component: FC<T>) {
+    return withErrorBoundary(component, createErrorBoundaryProps(fb));
+  };
 }
