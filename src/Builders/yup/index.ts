@@ -8,7 +8,7 @@ type yupBuilderPropsType<T> = {
     min: (val: number) => string;
     max: (val: number) => string;
   };
-  customSchemas: T;
+  customSchemas: (instance: typeof yup) => T;
 };
 export function yupBuilder<T>(constructor: yupBuilderPropsType<T>) {
   const yupText = {
@@ -53,7 +53,7 @@ export function yupBuilder<T>(constructor: yupBuilderPropsType<T>) {
           .typeError(yupText.req);
       },
 
-      ...constructor.customSchemas,
+      ...constructor.customSchemas(yup),
     },
   };
 }
