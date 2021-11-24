@@ -21,7 +21,7 @@ export const createErrorBoundaryProps = (fb: FC<any>) => ({
 });
 
 export function createComponentBuilder(fb: FC<any>) {
-  return function <T>(name: string, component: FC<T>) {
+  return function <T>(component: FC<T>) {
     return withErrorBoundary(component, createErrorBoundaryProps(fb));
   };
 }
