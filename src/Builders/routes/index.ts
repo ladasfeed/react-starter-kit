@@ -13,10 +13,6 @@ export function createRouter<T>(
   /* Array of routes for devtools */
   let arrayOfRoutes: Array<any> = [];
 
-  /**
-   * router: router object,
-   * path: prefix string
-   * */
   const routerCreator = (
     router: {
       [key: string]: any;
@@ -34,28 +30,33 @@ export function createRouter<T>(
     tempRouter.root = prefixPath ? prefixPath : "/";
     arrayOfRoutes.push(tempRouter.root);
 
-    let key: keyof typeof router;
-    for (key in router) {
-      if (key == "root") {
+    let fieldName: keyof typeof router;
+    for (fieldName in router) {
+      if (fieldName == "root") {
         continue;
       }
-      const routerElementType = typeof router[key];
+      const routerElementType = typeof router[fieldName];
 
+      /**
+       * If field is object - call this function with this field
+       * and define prefixPath.
+       * If a string - add value to temp router object by fieldName.
+       * */
       switch (routerElementType) {
         case "object":
-          const customRoot = router[key]["root"];
-          tempRouter[key] = routerCreator(
-            router[key],
-            `${prefixPath}/${customRoot || key}`
+          const customRoot = router[fieldName]["root"];
+          tempRouter[fieldName] = routerCreator(
+            router[fieldName],
+            `${prefixPath}/${customRoot || fieldName}`
           );
           break;
         case "string":
-          if (router[key].includes("!")) {
-            tempRouter[key] = router[key].substr(1);
+          if (router[fieldName].includes("!")) {
+            tempRouter[fieldName] = router[fieldName].substr(1);
           } else {
-            tempRouter[key] = prefixPath + router[key];
+            tempRouter[fieldName] = prefixPath + router[fieldName];
           }
-          arrayOfRoutes.push(tempRouter[key]);
+          arrayOfRoutes.push(tempRouter[fieldName]);
           break;
         default:
           break;

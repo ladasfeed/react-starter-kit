@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from "axios";
+import { AxiosResponse } from "axios";
 
 const createRequest = async (response: any): Promise<AxiosResponse<any>> => {
   try {
