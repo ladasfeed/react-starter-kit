@@ -2,6 +2,8 @@
     --circle-width: 21px;
     --padding: 2px;
     --border-radius: 20px;
+    display: block;
+    width: calc(var(--circle-width) * 2);
 }
 
 .input {
@@ -18,12 +20,13 @@
 
 .switch_container {
     cursor: pointer;
-    width: calc(var(--circle-width) * 2);
+    /*width: calc(var(--circle-width) * 2);*/
+    width: 100%;
     padding: var(--padding);
     border-radius: var(--border-radius);
     background: #D2D6E1;
     transition: .3s;
-    height: var(--circle-width);
+    height: calc(var(--circle-width) + var(--padding) * 2);
     position: relative;
 }
 

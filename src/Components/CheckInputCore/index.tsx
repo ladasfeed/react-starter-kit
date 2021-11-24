@@ -45,7 +45,7 @@ type CheckBoxGroupType<T> = {
   className?: string;
   checkboxClassName?: string;
   /*@TODO реализовать */
-  direction?: {
+  compose?: {
     value: "row" | "column";
     gap: string;
   };
