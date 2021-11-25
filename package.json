@@ -1,6 +1,6 @@
 {
-  "name": "react-dev-starter-pack",
-  "version": "0.0.17",
+  "name": "react-starter-pack",
+  "version": "0.0.1",
   "description": "",
   "main": "./dist/index.js",
   "scripts": {
