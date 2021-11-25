@@ -47,7 +47,7 @@ export function createRouter<T>(
           const customRoot = router[fieldName]["root"];
           tempRouter[fieldName] = routerCreator(
             router[fieldName],
-            `${prefixPath}${customRoot ? `/${customRoot}` : fieldName}`
+            `${prefixPath}${customRoot ? customRoot : `/${fieldName}`}`
           );
           break;
         case "string":
