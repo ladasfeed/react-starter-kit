@@ -32,7 +32,7 @@
     "@types/yup": "^0.29.13",
     "babel-loader": "^8.2.3",
     "css-loader": "^6.5.1",
-    "mini-css-extract-plugin": "^2.4.4",
+    "mini-css-extract-plugin": "^2.4.5",
     "postcss-loader": "^6.2.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -47,19 +47,19 @@
     "webpack-cli": "^4.9.1"
   },
   "peerDependencies": {
+    "@types/axios": "*",
+    "@types/yup": "*",
+    "axios": "*",
     "react": "*",
     "react-dom": "*",
-    "@types/yup": "*",
-    "@types/axios": "*",
-    "react-hook-form": "*",
-    "axios": "*"
+    "react-hook-form": "*"
   },
   "dependencies": {
-    "@types/axios": "^0.14.0",
+    "@types/axios": "*",
     "classnames": "*",
-    "yup": "^0.32.9",
     "react-error-boundary": "^3.1.4",
-    "react-number-format": "^4.8.0"
+    "react-number-format": "^4.8.0",
+    "yup": "^0.32.9"
   },
   "files": [
     "dist"
