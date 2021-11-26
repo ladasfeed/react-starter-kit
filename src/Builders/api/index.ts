@@ -2,7 +2,7 @@ import axios, { AxiosResponse } from "axios";
 
 type fnType = (...args: any) => any;
 type returnedType<T extends fnType> = (
-  apiArgs: Parameters<T>[0]
+  ...apiArgs: Parameters<T>
 ) => Promise<AxiosResponse<any>>;
 
 export function apiBuilder<T extends fnType>(method: T): returnedType<T> {
@@ -18,4 +18,4 @@ export function apiBuilder<T extends fnType>(method: T): returnedType<T> {
   //@ts-ignore
   return func;
 }
-const blob = apiBuilder((props: { blob: 2 }) => axios.get("/hui"));
+const blob = apiBuilder(() => axios.get("/hui"));
