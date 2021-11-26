@@ -50,15 +50,15 @@
     "react": "*",
     "react-dom": "*",
     "@types/yup": "*",
-    "@types/axios": "*"
+    "@types/axios": "*",
+    "react-hook-form": "*",
+    "axios": "*"
   },
   "dependencies": {
     "@types/axios": "^0.14.0",
-    "axios": "^0.24.0",
     "classnames": "*",
     "yup": "^0.32.9",
     "react-error-boundary": "^3.1.4",
-    "react-hook-form": "^7.19.5",
     "react-number-format": "^4.8.0"
   },
   "files": [
