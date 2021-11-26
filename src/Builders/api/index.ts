@@ -1,10 +1,11 @@
 import axios, { AxiosResponse } from "axios";
 
-type returnedType<T> = T extends unknown
-  ? () => Promise<AxiosResponse<any>>
-  : (apiProps: T) => Promise<AxiosResponse<any>>;
+type fnType = (...args: any) => any;
+type returnedType<T extends fnType> = (
+  apiArgs: Parameters<T>[0]
+) => Promise<AxiosResponse<any>>;
 
-export function apiBuilder<T>(method: T): T {
+export function apiBuilder<T extends fnType>(method: T): returnedType<T> {
   //@ts-ignore
   const func = async (apiProps: T) => {
     try {
@@ -17,4 +18,4 @@ export function apiBuilder<T>(method: T): T {
   //@ts-ignore
   return func;
 }
-const blob = apiBuilder((rpops: { blob: 2 }) => axios.get("/hui"));
+const blob = apiBuilder((props: { blob: 2 }) => axios.get("/hui"));
