@@ -1,15 +1,13 @@
 import { AxiosResponse } from "axios";
 
-const createRequest = async (response: any): Promise<AxiosResponse<any>> => {
-  try {
-    return await response;
-  } catch (e: any) {
-    throw await e.response;
-  }
-};
-
 export function apiBuilder<T>(
   method: (props: T) => Promise<AxiosResponse<any>>
-) {
-  return async (apiProps: T) => await createRequest(method(apiProps));
+): (apiProps: T) => Promise<AxiosResponse<any>> {
+  return async (apiProps: T) => {
+    try {
+      return await method(apiProps);
+    } catch (e: any) {
+      throw await e.response;
+    }
+  };
 }
