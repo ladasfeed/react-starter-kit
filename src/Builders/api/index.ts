@@ -1,8 +1,8 @@
 import { AxiosResponse } from "axios";
 
-export function apiBuilder<T>(
-  method: (props: T) => Promise<AxiosResponse<any>>
-): (apiProps: T) => Promise<AxiosResponse<any>> {
+export function apiBuilder<T, F>(
+  method: (props: T) => Promise<F>
+): (apiProps: T) => Promise<F> {
   return async (apiProps: T) => {
     try {
       return await method(apiProps);
