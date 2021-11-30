@@ -19,9 +19,13 @@ type CheckboxCreatorOptionalTypes<T> = {
     component: FC<T>;
   };
 };
-type CheckboxCreatorType<T, F extends checkboxBuilderType> = {
+type CheckboxCreatorType<F extends checkboxBuilderType, T> = {
   classNames: {
     input?: string;
+    container?: string;
+    group?: string;
+    icon?: string;
+    label?: string;
   };
 } & (F extends "default"
   ? AtLeast<CheckboxCreatorOptionalTypes<T>, "icons">
@@ -61,7 +65,7 @@ type checkboxBuilderType = "custom" | "default";
 
 /** default | custom */
 export function CheckInputBuilder<F extends checkboxBuilderType, T>(
-  constructor: CheckboxCreatorType<T, F>
+  constructor: CheckboxCreatorType<F, T>
 ) {
   /** Creating base checkbox */
   const CheckBox: FC<CheckBoxType<T>> = (props) => {
@@ -70,14 +74,20 @@ export function CheckInputBuilder<F extends checkboxBuilderType, T>(
     const field = props.control.register(props.name);
 
     return (
-      <label className={cn(styles.container, props.className)}>
+      <label
+        className={cn(
+          styles.container,
+          props.className,
+          constructor.classNames.container
+        )}
+      >
         <input
           type={props.inputType}
           className={cn(styles.checkbox_input, constructor.classNames.input)}
           {...field}
           onChange={(e: any) => {
             field.onChange(e);
-            //   custom
+            props.onChange?.call({}, e);
           }}
           value={props.value}
         />
@@ -87,7 +97,7 @@ export function CheckInputBuilder<F extends checkboxBuilderType, T>(
             ...props.customPayload,
           })
         ) : (
-          <div className={styles.icon}>
+          <div className={cn(styles.icon, constructor.classNames.icon)}>
             {constructor.icons &&
               React.createElement(constructor.icons[props.inputType]?.checked, {
                 className: cn(styles.checked_icon),
@@ -101,7 +111,11 @@ export function CheckInputBuilder<F extends checkboxBuilderType, T>(
               )}
           </div>
         )}
-        {props.label && <span className={styles.label}>{props.label}</span>}
+        {props.label && (
+          <span className={cn(styles.label, constructor.classNames.label)}>
+            {props.label}
+          </span>
+        )}
       </label>
     );
   };
@@ -109,7 +123,13 @@ export function CheckInputBuilder<F extends checkboxBuilderType, T>(
   /** Group of checkboxes */
   const CheckBoxGroup = (props: CheckBoxGroupType<T>) => {
     return (
-      <div className={cn(styles.group, props.className)}>
+      <div
+        className={cn(
+          styles.group,
+          props.className,
+          constructor.classNames.group
+        )}
+      >
         {props.options.map((item, index) => {
           return (
             <CheckBox
