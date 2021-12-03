@@ -3,7 +3,7 @@ import { yupBuilder as yupB } from "./yup";
 import { createComponentBuilder } from "./component";
 import { localStorageBuilder as lcB } from "./localStorage";
 import { createRouter as createRouterB } from "./routes";
-import lazyLoadBuilder from "./lazyLoadComponent";
+import { lazyLoadBuilder } from "./lazyLoadComponent";
 
 export const builders = {
   api: apiB,
