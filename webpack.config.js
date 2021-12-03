@@ -20,6 +20,8 @@ module.exports = {
     "p-min-delay": "p-min-delay",
     "react-number-format": "react-number-format",
     yup: "yup",
+    axios: "axios",
+    "@loadable/component": "@loadable/component",
   },
 
   module: {
