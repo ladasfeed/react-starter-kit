@@ -59,7 +59,8 @@
     "classnames": "*",
     "react-error-boundary": "^3.1.4",
     "react-number-format": "^4.8.0",
-    "yup": "^0.32.9"
+    "yup": "^0.32.9",
+    "react-hook-form": "*"
   },
   "files": [
     "dist"
