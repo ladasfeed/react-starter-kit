@@ -1,6 +1,6 @@
-// import loadable from "@loadable/component";
+import loadable from "@loadable/component";
 import pMinDelay from "p-min-delay";
-const loadable = require("@loadable/component");
+// const loadable = require("@loadable/component");
 
 export default (fb: JSX.Element | undefined, delay?: number) => {
   return (importCb: () => PromiseLike<any>) => {
