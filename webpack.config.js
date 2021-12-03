@@ -16,6 +16,10 @@ module.exports = {
     react: "react",
     "react-dom": "react-dom",
     "react-hook-form": "react-hook-form",
+    classnames: "classnames",
+    "p-min-delay": "p-min-delay",
+    "react-number-format": "react-number-format",
+    yup: "yup",
   },
 
   module: {
