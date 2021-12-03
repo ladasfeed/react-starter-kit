@@ -2,9 +2,9 @@
 import pMinDelay from "p-min-delay";
 const loadable = require("@loadable/component");
 
-export default (fb: JSX.Element | undefined) => {
+export default (fb: JSX.Element | undefined, delay?: number) => {
   return (importCb: () => PromiseLike<any>) => {
-    return loadable(() => pMinDelay(importCb(), 800), {
+    return loadable(() => pMinDelay(importCb(), delay || 800), {
       fallback: fb,
     });
   };
