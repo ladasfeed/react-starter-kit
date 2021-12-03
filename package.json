@@ -26,6 +26,7 @@
     "@storybook/builder-webpack5": "^6.3.12",
     "@storybook/manager-webpack5": "^6.3.12",
     "@storybook/react": "^6.3.12",
+    "@types/loadable__component": "^5.13.4",
     "@types/react": "^17.0.34",
     "@types/react-datepicker": "^4.3.2",
     "@types/react-dom": "^17.0.11",
@@ -55,12 +56,14 @@
     "react-hook-form": "*"
   },
   "dependencies": {
+    "@loadable/component": "^5.15.0",
     "@types/axios": "*",
     "classnames": "*",
+    "p-min-delay": "^4.0.1",
     "react-error-boundary": "^3.1.4",
+    "react-hook-form": "*",
     "react-number-format": "^4.8.0",
-    "yup": "^0.32.9",
-    "react-hook-form": "*"
+    "yup": "^0.32.9"
   },
   "files": [
     "dist"
