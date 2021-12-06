@@ -18,4 +18,3 @@ export function apiBuilder<T extends fnType>(method: T): returnedType<T> {
   //@ts-ignore
   return func;
 }
-const blob = apiBuilder(() => axios.get("/hui"));

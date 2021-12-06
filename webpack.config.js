@@ -21,6 +21,8 @@ module.exports = {
     "react-number-format": "react-number-format",
     yup: "yup",
     axios: "axios",
+    "react-router-dom": "react-router-dom",
+    "@reduxjs/toolkit": "@reduxjs/toolkit",
     "@loadable/component": "@loadable/component",
   },
 

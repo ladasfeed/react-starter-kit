@@ -1,0 +1,43 @@
+.container {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 999;
+}
+
+.button {
+    padding: 10px;
+    border-radius: 16px;
+    background: white;
+    cursor: pointer;
+    width: 68px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.4);
+    margin-bottom: 16px;
+    margin-top: 16px;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+}
+
+.list {
+    box-shadow: 0 0 5px rgba(0,0,0,0.4);
+    padding: 8px;
+    background: white;
+    height: 80vh;
+    width: 330px;
+    overflow: auto;
+    overscroll-behavior: contain;
+}
+
+.list_item {
+    display: block;
+    cursor: pointer;
+    margin-bottom: 6px;
+    transition: .1s;
+}
+.list_item:hover {
+    color: #4B78F2;
+}
