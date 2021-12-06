@@ -36,7 +36,7 @@ export const createLoadingState = <T>(sagaActions: T) => {
   });
 
   const get = (key: string) => (state: any) => {
-    return state.loadingState[key];
+    return state.loadingState[key] as boolean;
   };
 
   const set = (key: string, value: boolean) => {
