@@ -1,5 +1,5 @@
 import _RouterDevTools from "./RouterDevTools";
 
-export default {
-  RouterDevTools: _RouterDevTools,
+export const DevTools = {
+  Router: _RouterDevTools,
 };
