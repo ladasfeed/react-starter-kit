@@ -1,7 +1,7 @@
 import React, { FC } from "react";
-import styles from "DevTools/RouterDevTools/index.module.css";
+import styles from "./index.module.css";
 import { Link } from "react-router-dom";
-import { useToggle } from "Hooks/useToggle";
+import { useToggle } from "../../Hooks/useToggle";
 import cn from "classnames";
 
 type propsType = {
