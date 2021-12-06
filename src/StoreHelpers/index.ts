@@ -45,4 +45,10 @@ export const createLoadingState = <T>(sagaActions: T) => {
       value,
     });
   };
+
+  return {
+    slice,
+    get,
+    set,
+  };
 };
