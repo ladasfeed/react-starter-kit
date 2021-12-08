@@ -48,8 +48,10 @@ export function createRouter<T>(
           tempRouter[fieldName] = routerCreator(
             router[fieldName],
             `${prefixPath}${
-              customRoot !== undefined && customRoot != "/"
-                ? customRoot
+              customRoot !== undefined
+                ? customRoot != "/"
+                  ? customRoot
+                  : ""
                 : `/${fieldName}`
             }`
           );
