@@ -77,4 +77,3 @@ export function createRouter<T>(
   router.sandbox = "/sandbox";
   return router;
 }
-
