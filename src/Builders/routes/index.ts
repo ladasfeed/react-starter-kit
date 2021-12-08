@@ -73,7 +73,7 @@ export function createRouter<T>(
 
   const router = routerCreator(rootRouter, "");
 
-  router.array = arrayOfRoutes;
+  router.array = [...arrayOfRoutes, "/sandbox"];
   router.sandbox = "/sandbox";
   return router;
 }
