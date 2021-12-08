@@ -1,8 +1,30 @@
 # react-starter-kit
+This package is a union of different helpers. Functions, hooks, components-builders and so on.
+To use it you should add specific packages to your project:
+- redux, redux-toolkit, redux-saga
+- react-hook-form, yup
 
-## Builders
+## Navigation
+#### [Builders](#Builders)
+- [Router](#Router)
+- [Yup](#Yup)
+- [localStorage](#localStorage)
+- [api](#api)
+- [component](#component)
+#### [Components](#Components)
+- [Input](#Input)
+- [Switch](#Switch)
+- [CheckInput](#CheckInput)
+
+
+
+
+<br/>
+<br/>
+<br/>
+
+## <a name='Builders'></a> Builders
 ### router
-Go to [Link](#yup)
 
 ##### Usage
 Argument of function is an object, which specifies 
@@ -49,8 +71,7 @@ Output
     },
 }
 ```
-### <a name="yup"></a> s
-### Yup
+### <a name='Yup'></a> Yup
 Under the hood yupBuilder has built version of yup, but you shoud
 to install @types/yup as devDeps.
 ##### Usage
@@ -77,7 +98,7 @@ Output - Object
 | create | equals to yup.object().shape | 
 | text | text snippets | 
 
-### localStorage
+### <a name='localStorage'></a> localStorage
 This builder is kind of Proxy between developer and localStorage.
 It has only one parameter - generic type of your localStorage model.
 It will automatically do JSON.stringify/parse.
@@ -101,7 +122,7 @@ export const lcController = builders.localStorage<{
 | set | typed set | 
 | clear | localStorage.clear() | 
 
-### api
+### <a name='api'></a> api
 Makes your function async and awaiting of result.
 Has try-catch under the hood.
 Returns `Promise<AxiosResponse>`
@@ -112,7 +133,7 @@ apiBuilder((phone: string) =>
 );
 ```
 
-### component
+### <a name='component'></a> component
 Error boundary wrapper with custom fallback component.
 
 Usage 
@@ -127,11 +148,11 @@ export default createFc((props:any) => {
 })
 ```
 
-## Component builders
+## <a name='Components'></a> Component builders
 I have not finished it yet, so you should to specify styles for overriding like:
 `label.label` 
 `input.input`
-### Input
+### <a name='Input'></a> Input
 InputBuilder. Output is object with different inputs.
 ```
 export const Input = UIBuilders.InputTextBuilder({
@@ -154,7 +175,7 @@ export const Input = UIBuilders.InputTextBuilder({
 });
 ```
 
-### Switch
+### <a name='Switch'></a> Switch
 
 Usage
 ```
@@ -175,7 +196,7 @@ Use css vars for restyling rect:
 --border-radius: 40px;
 ```
 
-### CheckInput
+### <a name='CheckInput'></a> CheckInput
 Radio & Checkbox
 
 Usage variant 1
