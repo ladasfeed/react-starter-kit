@@ -12,7 +12,7 @@ export function apiBuilder<T extends fnType>(method: T): returnedType<T> {
       //@ts-ignore
       return await method(apiProps);
     } catch (e: any) {
-      throw await e.response;
+      throw await e?.response;
     }
   };
   //@ts-ignore
