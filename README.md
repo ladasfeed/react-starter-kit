@@ -11,7 +11,7 @@ To use it you should add specific packages to your project:
 - [localStorage](#localStorage)
 - [api](#api)
 - [component](#component)
-#### [Components](#Components)
+#### [Components builders](#Components builders)
 - [Input](#Input)
 - [Switch](#Switch)
 - [CheckInput](#CheckInput)
@@ -148,7 +148,7 @@ export default createFc((props:any) => {
 })
 ```
 
-## <a name='Components'></a> Component builders
+## <a name='Components builders'></a> Component builders
 I have not finished it yet, so you should to specify styles for overriding like:
 `label.label` 
 `input.input`
