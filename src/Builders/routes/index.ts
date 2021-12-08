@@ -9,7 +9,7 @@ type recursiveRouterType<T> = T extends string
 
 export function createRouter<T>(
   rootRouter: T
-): recursiveRouterType<T> & { array: Array<string> } {
+): recursiveRouterType<T> & { array: Array<string>; sandbox: string } {
   /* Array of routes for devtools */
   let arrayOfRoutes: Array<any> = [];
 
@@ -74,5 +74,7 @@ export function createRouter<T>(
   const router = routerCreator(rootRouter, "");
 
   router.array = arrayOfRoutes;
+  router.sandbox = "/sandbox";
   return router;
 }
+
