@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import styles from "./index.module.css";
 import cn from "classnames";
 import { Control, UseFormClearErrors, UseFormSetValue } from "react-hook-form";
-import { useCodeFieldLogic } from "Components/CodeField/useCodeFieldLogic";
+import { useCodeFieldLogic } from "./useCodeFieldLogic";
 
 export type CodeFieldPropsType = {
   // style
