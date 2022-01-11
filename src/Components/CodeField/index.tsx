@@ -107,6 +107,7 @@ export const CodeField: React.FC<CodeFieldPropsType> = ({
                   [styles.wrapper_error_number]: error,
                 })}
                 type="tel"
+                autoComplete={"off"}
                 key={index}
                 maxLength={1}
                 id={`${index}-id`}
