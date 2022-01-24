@@ -3,6 +3,8 @@
  * */
 type recursiveRouterType<T> = T extends string
   ? T
+  : T extends Function
+  ? T
   : {
       [key in keyof T]: recursiveRouterType<T[key]>;
     } & { root: string };
@@ -65,6 +67,10 @@ export function createRouter<T>(
           arrayOfRoutes.push(tempRouter[fieldName]);
           break;
         default:
+        case "function":
+          const current = router[fieldName];
+          tempRouter[fieldName] = (props: Parameters<typeof current>[0]) =>
+            prefixPath + current(props);
           break;
       }
     }
