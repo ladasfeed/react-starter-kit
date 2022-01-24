@@ -232,10 +232,13 @@ function InputTextBuilder(builderProps: InputConstructorType) {
     Default: (props: Omit<TextInputPropsType, "control">) => {
       return (
         <ConnectedForm>
-          {({ control, formState: { errors } }) => (
+          {({ control, formState }) => (
             <Inputs.Default
               control={control}
-              error={props.error || get(errors, `${props.name}.message`)}
+              error={
+                props.error ||
+                (formState && get(formState.errors, `${props.name}.message`))
+              }
               {...props}
             />
           )}
