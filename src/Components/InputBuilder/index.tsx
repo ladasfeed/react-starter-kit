@@ -7,6 +7,7 @@ import NumberFormat, {
   NumberFormatPropsBase,
 } from "react-number-format";
 import { get } from "lodash";
+import { ConnectedForm } from "../FormConnector";
 
 type InputConstructorType = {
   classNames?: {
@@ -229,17 +230,16 @@ function InputTextBuilder(builderProps: InputConstructorType) {
 
   const Connected = {
     Default: (props: Omit<TextInputPropsType, "control">) => {
-      const {
-        control,
-        formState: { errors },
-      } = useFormContext();
-
       return (
-        <Inputs.Default
-          control={control}
-          error={props.error || get(errors, `${props.name}.message`)}
-          {...props}
-        />
+        <ConnectedForm>
+          {({ control, formState: { errors } }) => (
+            <Inputs.Default
+              control={control}
+              error={props.error || get(errors, `${props.name}.message`)}
+              {...props}
+            />
+          )}
+        </ConnectedForm>
       );
     },
     Lock: (props: Omit<TextInputPropsType, "control">) => {
