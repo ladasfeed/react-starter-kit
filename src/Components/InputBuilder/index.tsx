@@ -2,7 +2,11 @@ import React, { AllHTMLAttributes, FC, ReactNode, useState } from "react";
 import styles from "./index.module.css";
 import { Control, Controller, useFormContext } from "react-hook-form";
 import cn from "classnames";
-import NumberFormat, { NumberFormatProps, NumberFormatPropsBase } from "react-number-format";
+import NumberFormat, {
+  NumberFormatProps,
+  NumberFormatPropsBase,
+} from "react-number-format";
+import { get } from "lodash";
 
 type InputConstructorType = {
   classNames?: {
@@ -141,7 +145,8 @@ function InputTextBuilder(builderProps: InputConstructorType) {
    * @CalendarInput - contains NumberFormat component, which needed to masking DatePicker
    * @Number - contains NumberFormat component with additional props for formatting and masking
    * */
-  return {
+
+  const Inputs = {
     Default: Input,
     Lock: (props: TextInputPropsType) => {
       return (
@@ -220,6 +225,88 @@ function InputTextBuilder(builderProps: InputConstructorType) {
         </InputWrapper>
       );
     },
+  };
+
+  const Connected = {
+    Default: (props: Omit<TextInputPropsType, "control">) => {
+      const {
+        control,
+        formState: { errors },
+      } = useFormContext();
+
+      return (
+        <Inputs.Default
+          control={control}
+          error={props.error || get(errors, `${props.name}.message`)}
+          {...props}
+        />
+      );
+    },
+    Lock: (props: Omit<TextInputPropsType, "control">) => {
+      const {
+        control,
+        formState: { errors },
+      } = useFormContext();
+
+      return (
+        <Inputs.Lock
+          control={control}
+          error={props.error || get(errors, `${props.name}.message`)}
+          {...props}
+        />
+      );
+    },
+    Editable: (props: Omit<TextInputPropsType, "control">) => {
+      const {
+        control,
+        formState: { errors },
+      } = useFormContext();
+
+      return (
+        <Inputs.Editable
+          control={control}
+          error={props.error || get(errors, `${props.name}.message`)}
+          {...props}
+        />
+      );
+    },
+    Password: (
+      props: Omit<NumberFormatPropsBase & TextInputPropsType, "control">
+    ) => {
+      const {
+        control,
+        formState: { errors },
+      } = useFormContext();
+
+      return (
+        <Inputs.Password
+          control={control}
+          error={props.error || get(errors, `${props.name}.message`)}
+          {...props}
+        />
+      );
+    },
+    Numeric: (
+      props: Omit<NumberFormatPropsBase & TextInputPropsType, "control">
+    ) => {
+      const {
+        control,
+        formState: { errors },
+      } = useFormContext();
+
+      return (
+        <Inputs.Numeric
+          control={control}
+          error={props.error || get(errors, `${props.name}.message`)}
+          {...props}
+        />
+      );
+    },
+  };
+
+  return {
+    ...Inputs,
+    Connected,
   };
 }
 
