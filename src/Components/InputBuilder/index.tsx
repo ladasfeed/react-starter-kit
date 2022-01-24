@@ -232,16 +232,20 @@ function InputTextBuilder(builderProps: InputConstructorType) {
     Default: (props: Omit<TextInputPropsType, "control">) => {
       return (
         <ConnectedForm>
-          {({ control, formState }) => (
-            <Inputs.Default
-              control={control}
-              error={
-                props.error ||
-                (formState && get(formState.errors, `${props.name}.message`))
-              }
-              {...props}
-            />
-          )}
+          {({ control, formState }) => {
+            if (!control) return <></>;
+
+            return (
+              <Inputs.Default
+                control={control}
+                error={
+                  props.error ||
+                  (formState && get(formState.errors, `${props.name}.message`))
+                }
+                {...props}
+              />
+            );
+          }}
         </ConnectedForm>
       );
     },
