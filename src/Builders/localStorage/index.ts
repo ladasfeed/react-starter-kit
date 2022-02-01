@@ -7,14 +7,15 @@ export function localStorageBuilder<storageType>() {
 
       try {
         if (item) {
-          parsedValue = JSON.parse(item);
+          parsedValue = JSON.parse(item) as storageType[T];
 
           return parsedValue;
         } else {
           return null;
         }
       } catch (e) {
-        return item;
+        //@ts-ignore
+        return item as storageType[T];
       }
     },
     set: function <T extends keyof storageType>(key: T, value: storageType[T]) {
