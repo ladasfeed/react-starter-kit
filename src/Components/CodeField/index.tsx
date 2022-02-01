@@ -32,8 +32,12 @@ export type CodeFieldPropsType = {
       totalAttempts: number;
       printTimer(): string;
       hasAttempts: boolean;
+      loading?: boolean;
     }>;
   };
+
+  //state
+  loading?: boolean;
 
   // hook form
   setValue: UseFormSetValue<any>;
@@ -55,6 +59,7 @@ export const CodeField: React.FC<CodeFieldPropsType> = ({
   name,
   Components,
   clearErrors,
+  loading,
 }) => {
   /* state */
 
@@ -136,6 +141,7 @@ export const CodeField: React.FC<CodeFieldPropsType> = ({
             hasAttempts={attempts != currentAttempts}
             printTimer={printTimer}
             resend={sendCodeHandler}
+            loading={loading}
           />
         ) : (
           <>
