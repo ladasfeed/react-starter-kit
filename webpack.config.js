@@ -24,6 +24,7 @@ module.exports = {
     "react-router-dom": "react-router-dom",
     "@reduxjs/toolkit": "@reduxjs/toolkit",
     "@loadable/component": "@loadable/component",
+    "react-query": "react-query",
   },
 
   module: {
