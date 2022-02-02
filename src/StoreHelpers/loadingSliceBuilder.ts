@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSelector, createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const createInitialState = (sagaActions: any) => {
   let temp: any = {};
@@ -39,6 +39,18 @@ export default <T>(sagaActions: T) => {
     return state.loadingState[key] as boolean;
   };
 
+  const getMany = (keys: Array<string>) => {
+    return createSelector(
+      (state: any) => state.loadingState,
+      (processes) => {
+        const loading = keys.find((processKey) => {
+          return processes[processKey];
+        });
+        return Boolean(loading);
+      }
+    );
+  };
+
   const set = (key: string, value: boolean) => {
     return slice.actions.set({
       key,
@@ -49,6 +61,7 @@ export default <T>(sagaActions: T) => {
   return {
     slice,
     get,
+    getMany,
     set,
   };
 };

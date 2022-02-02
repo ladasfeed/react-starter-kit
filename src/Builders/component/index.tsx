@@ -1,7 +1,7 @@
 import { withErrorBoundary } from "react-error-boundary";
 import React, { FC } from "react";
 
-export const createErrorBoundaryProps = (fb: FC<any>) => ({
+const createErrorBoundaryProps = (fb: FC<any>) => ({
   FallbackComponent: fb,
   onError: (error: any, info: any) => {
     console.error("ERROR INFORMATION", error);
