@@ -5,10 +5,6 @@ const isNumber = (value: string) => {
   return (Number(value) > 0 && Number(value) <= 9) || value == "0";
 };
 
-let intervalIds: {
-  [key: string]: number;
-} = {};
-
 const addZeroToNumber = (value: string | number) => {
   return String(value).length == 1 ? `0${value}` : value;
 };
@@ -40,6 +36,7 @@ export const useCodeFieldLogic = ({
   const [fieldsArray, setFieldsArray] = useState<Array<string>>(
     Array(codeLength).fill("")
   );
+  const timerId = useRef<number>();
   const arrayOfInputs = useRef<Array<HTMLInputElement | null>>([]);
   const [timerSeconds, setTimerSeconds] = useState(0);
   const [currentAttempts, setCurrentAttempts] = useState(0);
@@ -47,21 +44,20 @@ export const useCodeFieldLogic = ({
     control,
     name,
   });
-
   /* methods */
 
   // Clear previous interval and set new
   function createTimer() {
     setTimerSeconds(timeout);
-    window.clearInterval(intervalIds[name]);
-    intervalIds[name] = window.setInterval(updateTimer, 1000);
+    window.clearInterval(timerId.current);
+    timerId.current = window.setInterval(updateTimer, 1000);
   }
 
   // Update timer state
   function updateTimer() {
     setTimerSeconds((v) => {
       if (v <= 1) {
-        window.clearInterval(intervalIds[name]);
+        window.clearInterval(timerId.current);
         return 0;
       } else {
         return v - 1;
@@ -189,10 +185,10 @@ export const useCodeFieldLogic = ({
 
   /* effects */
   useEffect(() => {
-    intervalIds[name] = window.setInterval(updateTimer, 1000);
+    timerId.current = window.setInterval(updateTimer, 1000);
 
     return () => {
-      window.clearInterval(intervalIds[name]);
+      window.clearInterval(timerId.current);
     };
   }, []);
 

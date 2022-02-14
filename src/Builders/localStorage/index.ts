@@ -1,8 +1,9 @@
-const rawLc = window.localStorage;
+// Typed local storage
+const rawLS = window.localStorage;
 export function localStorageBuilder<storageType>() {
   return {
     get: function <T extends keyof storageType>(key: T) {
-      const item = rawLc.getItem(String(key));
+      const item = rawLS.getItem(String(key));
       let parsedValue: storageType[T];
 
       try {
@@ -24,7 +25,7 @@ export function localStorageBuilder<storageType>() {
         case "number":
         case "boolean":
         case "object":
-          rawLc.setItem(String(key), JSON.stringify(value));
+          rawLS.setItem(String(key), JSON.stringify(value));
 
           break;
         default:
@@ -32,7 +33,7 @@ export function localStorageBuilder<storageType>() {
       }
     },
     clearAll: function () {
-      rawLc.clear();
+      rawLS.clear();
     },
   };
 }

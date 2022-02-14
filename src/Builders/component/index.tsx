@@ -11,6 +11,7 @@ const createErrorBoundaryProps = (fb: FC<any>) => ({
   },
 });
 
+// Try catch for components with custom fallback
 export function createComponentBuilder(fb: FC<any>) {
   return function <T>(component: FC<T>) {
     return withErrorBoundary(component, createErrorBoundaryProps(fb));

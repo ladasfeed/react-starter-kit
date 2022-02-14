@@ -1,9 +1,9 @@
-import React, { FC, HTMLAttributes, useEffect, useState } from "react";
+import React, { HTMLAttributes } from "react";
 import styles from "./index.module.css";
-import { Control, useFormContext } from "react-hook-form";
+import { Control } from "react-hook-form";
 import cn from "classnames";
 
-export type SwitchBuilderType = {
+type SwitchBuilderType = {
   classNames: {
     container?: string;
     input?: string;
@@ -24,7 +24,6 @@ export type SwitchPropsType = {
  * */
 export const SwitchBuilder = (builderProps: SwitchBuilderType) => {
   const Switch = (props: SwitchPropsType) => {
-    // const { control } = useFormContext();
     return (
       <label
         className={cn(builderProps.classNames.container, styles.container)}
@@ -32,7 +31,6 @@ export const SwitchBuilder = (builderProps: SwitchBuilderType) => {
         <input
           type="checkbox"
           {...props.control.register(props.name)}
-          /*{...control.register(props.name)}*/
           className={cn(builderProps.classNames.input, styles.input)}
         />
         <div

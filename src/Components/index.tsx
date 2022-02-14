@@ -10,4 +10,5 @@ export const UIBuilders = {
   CodeField,
 };
 
+// @TODO зачем?
 export declare type CodeFieldType = CodeFieldPropsType;

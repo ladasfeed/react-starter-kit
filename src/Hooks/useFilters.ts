@@ -47,7 +47,6 @@ export type filtersTypeCreator<T> = {
  * data,
  * form ( hook-form )
  * */
-//@TODO вернуть hasMoreItems
 export function useFilters<T, DataType>({
   initialState,
   defaultValues,

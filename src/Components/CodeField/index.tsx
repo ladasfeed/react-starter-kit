@@ -86,6 +86,7 @@ export const CodeField: React.FC<CodeFieldPropsType> = ({
     error,
   });
 
+  /** This function was created for concat prefix and unique className */
   function cnFactory(className: string) {
     return (classNamePrefix || "CodeField") + "__" + className;
   }

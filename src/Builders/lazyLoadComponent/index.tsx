@@ -1,7 +1,7 @@
 import loadable from "@loadable/component";
 import pMinDelay from "p-min-delay";
-// const loadable = require("@loadable/component");
 
+// lazy load component with custom fallback
 export const lazyLoadBuilder = (
   fb: JSX.Element | undefined,
   delay?: number
