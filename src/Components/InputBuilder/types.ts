@@ -1,4 +1,4 @@
-import { AllHTMLAttributes, FC, ReactNode } from "react";
+import { AllHTMLAttributes, CSSProperties, FC, ReactNode } from "react";
 import { Control } from "react-hook-form";
 import { NumberFormatPropsBase } from "react-number-format";
 
@@ -36,6 +36,7 @@ export type TextInputPropsType = {
   isLoading?: boolean;
   value?: string;
   error?: string;
+  wrapperStyle?: CSSProperties;
 } & AllHTMLAttributes<HTMLInputElement>;
 
 /** A type for the NumberInput */

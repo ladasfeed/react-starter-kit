@@ -24,6 +24,7 @@ export const InputWrapper: FC<{
         },
         builderProps.classNames?.elements?.wrapper
       )}
+      style={inputProps.wrapperStyle}
     >
       {children}
       {inputProps.placeholder && (
