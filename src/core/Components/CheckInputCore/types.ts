@@ -6,7 +6,7 @@ import { Control } from "react-hook-form";
 
 // Base type for component
 type CheckBoxBaseType = {
-  control: Control<any>;
+  control: any;
   inputType: "checkbox" | "radio";
   direction?: "right" | "left";
   name: string;
